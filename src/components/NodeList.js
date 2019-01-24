@@ -10,8 +10,6 @@ class NodeList extends Component {
 			nodeArr.push(node);
 		}
 
-		console.log(nodes);
-
 		return (
 			<div>
 				<ul>

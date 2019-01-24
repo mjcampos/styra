@@ -27,4 +27,4 @@ export const nodes = generateNodes(nNodes, seed);
 export const nEdges = Object.keys(nodes).reduce((n, x) => n + Object.keys(nodes[x]).length, 0);
 export const nEdgesAvg = nEdges / nNodes;
 
-console.log(`${nEdges} edges ÷ ${nNodes} nodes ≈ ${nEdgesAvg.toFixed(2)} edges per node`);
+// console.log(`${nEdges} edges ÷ ${nNodes} nodes ≈ ${nEdgesAvg.toFixed(2)} edges per node`);
