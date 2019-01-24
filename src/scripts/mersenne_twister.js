@@ -61,7 +61,7 @@
 */
 
 var MersenneTwister = function(seed) {
-  if (seed == undefined) {
+  if (seed === undefined) {
     seed = new Date().getTime();
   } 
   /* Period parameters */  
@@ -132,7 +132,7 @@ MersenneTwister.prototype.genrand_int32 = function() {
   if (this.mti >= this.N) { /* generate N words at one time */
     var kk;
 
-    if (this.mti == this.N+1)   /* if init_genrand() has not been called, */
+    if (this.mti === this.N+1)   /* if init_genrand() has not been called, */
       this.init_genrand(5489); /* a default initial seed is used */
 
     for (kk=0;kk<this.N-this.M;kk++) {

@@ -55,7 +55,7 @@ export function generateNodes(count, seed) {
       if (rng.random() < 0.25) {
         var weight = (rng.genrand_int31() % MAX_EDGE_WEIGHT) + 1;
         var other = i;
-        while (other == i && attempts++ < MAX_ATTEMPTS_AT_GENERATING_NODES) {
+        while (other === i && attempts++ < MAX_ATTEMPTS_AT_GENERATING_NODES) {
           var next = rng.genrand_int31() % count;
           if (_.keys(nodes[PREFIX + next]).length < MAX_EDGES_PER_NODE &&
               _.isUndefined(nodes[currentNode][PREFIX + next]) &&
