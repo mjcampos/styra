@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import {nodes} from '../scripts/script';
 
 class NodeList extends Component {
@@ -14,7 +15,9 @@ class NodeList extends Component {
 		return (
 			<div>
 				<ul>
-					{nodeArr.map(node => <li key={node}>{node}</li>)}
+					{nodeArr.map(node => (
+						<li key={node}><Link to={`node/${node}`}>{node}</Link></li>
+					))}
 				</ul>
 			</div>
 		);
