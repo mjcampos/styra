@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {nodes} from '../scripts/script';
+import {Table} from 'react-bootstrap';
 
 class Node extends Component {
 	constructor(props) {
@@ -92,7 +93,7 @@ class Node extends Component {
 
 				{
 					nodeArr.length ?
-							<table>
+							<Table>
 								<thead>
 									<tr>
 										<th onClick={() => this.sortingByNode()}>Node</th>
@@ -110,7 +111,7 @@ class Node extends Component {
 										)
 									})}
 								</tbody>
-							</table>
+							</Table>
 						:
 							<p>Node Object does not exist</p>
 				}

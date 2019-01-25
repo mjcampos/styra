@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {nodes} from '../scripts/script';
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 class NodeList extends Component {
 	render() {
@@ -12,11 +13,11 @@ class NodeList extends Component {
 
 		return (
 			<div>
-				<ul>
+				<ListGroup>
 					{nodeArr.map(node => (
-						<li key={node}><Link to={`node/${node}`}>{node}</Link></li>
+						<ListGroupItem key={node}><Link to={`node/${node}`}>{node}</Link></ListGroupItem>
 					))}
-				</ul>
+				</ListGroup>
 			</div>
 		);
 	}
