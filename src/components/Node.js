@@ -6,7 +6,8 @@ class Node extends Component {
 		super(props);
 
 		this.state = {
-			nodeArr: []
+			nodeArr: [],
+			sortBy: null
 		}
 	}
 
@@ -32,6 +33,55 @@ class Node extends Component {
 		return nodeArr;
 	}
 
+	reverseNodeArr() {
+		this.setState({
+			...this.state,
+			nodeArr: this.state.nodeArr.reverse()
+		});
+	}
+
+	sortingByNode() {
+		var {nodeArr, sortBy} = this.state;
+
+		if (sortBy !== "node") {
+			nodeArr.sort((a, b) => {
+				if(a.node < b.node) return -1;
+				if(a.node > b.node) return 1;
+
+				return 0;
+			});
+
+			this.setState({
+				...this.state,
+				sortBy: "node",
+				nodeArr
+			});
+		} else {
+			this.reverseNodeArr();
+		}
+	}
+
+	sortingByEdge() {
+		var {nodeArr, sortBy} = this.state;
+
+		if (sortBy !== "edges") {
+			nodeArr.sort((a, b) => {
+				if(a.edges < b.edges) return -1;
+				if(a.edges > b.edges) return 1;
+
+				return 0;
+			});
+
+			this.setState({
+				...this.state,
+				sortBy: "edges",
+				nodeArr
+			});
+		} else {
+			this.reverseNodeArr();
+		}
+	}
+
 	render() {
 		var {node_id} = this.props.match.params;
 		var {nodeArr} = this.state;
@@ -45,8 +95,8 @@ class Node extends Component {
 							<table>
 								<thead>
 									<tr>
-										<th>Node</th>
-										<th>Edges</th>
+										<th onClick={() => this.sortingByNode()}>Node</th>
+										<th onClick={() => this.sortingByEdge()}>Edges</th>
 									</tr>
 								</thead>
 
