@@ -17,7 +17,7 @@ class Node extends Component {
 
 		this.setState({
 			nodeArr: this.convertObjToArr(nodeObj)
-		})
+		});
 	}
 
 	convertObjToArr(nodeObj) {
